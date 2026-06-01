@@ -13,11 +13,9 @@
 <body>
 
     <!-- ==========================================
-         SECCIÓN 1: HERO (fondo, títulos y navegación)
+         SECCIÓN 1: titulo
          ========================================== -->
-   <!-- ==========================================
-     SECCIÓN 1: HERO (con animaciones estilo Jordan Stilwell)
-     ========================================== -->
+   
 <section class="hero" style="background-image: url('imagenes/fondo-hero.jpg');">
     
     <!-- Capa de oscurecimiento -->
@@ -31,20 +29,54 @@
         
         <!-- Subtítulo con animación fade-up y retraso -->
         <p class="subtitulo fade-up delay-1">
-            Ingeniero de Mezcla · Productor Musical · Compositor
+            Ingeniero de Mezcla | Productor Musical | Compositor
         </p>
         
         <!-- Menú de navegación con animación fade-up y más retraso -->
         <nav class="menu-principal fade-up delay-2">
             <ul>
+                <li><a href="#bio">BIO</a></li>
                 <li><a href="#trabajos">TRABAJOS</a></li>
                 <li><a href="#media">MEDIA</a></li>
-                <li><a href="#bio">BIO</a></li>
+                
                 <li><a href="#contacto">CONTACTO</a></li>
             </ul>
         </nav>
     </div>
 </section>
+
+  <!-- ==========================================
+         SECCIÓN 2: BIO (texto y foto personal)
+         ========================================== -->
+    <section id="bio" class="seccion bio">
+        <div class="contenedor">
+            <div class="encabezado-seccion">
+                <div class="linea-decorativa"></div>
+                <h2>BIO</h2>
+                <div class="linea-decorativa"></div>
+            </div>
+            
+            <div class="bio-contenido">
+                <!-- >>> AQUÍ COLOCA TU FOTO DE PERFIL (cuadrada) <<< -->
+                <img src="imagenes/perfil.jpg" alt="Foto de perfil" class="foto-perfil">
+                
+                <!-- >>> AQUÍ ESCRIBE TUS TEXTOS PERSONALES <<< -->
+                <div class="bio-texto">
+                    <p>A lo largo de mi carrera, he tenido el privilegio de trabajar con numerosos artistas, como <strong>compositor, 
+                        productor musical e ingeniero de mezcla,</strong> llevando cada proyecto a los mejores resultados posibles. Con más de  
+                    <strong>10 años de experiencia,</strong> he colaborado con artistas emergentes y consolidados, así como con empresas y 
+                    proyectos audiovisuales, acompañándolos en el desarrollo de su sonido y la materialización de sus ideas. <br><br>
+                    
+                    -Mi objetivo es ayudarte a alcanzar el sonido que tienes en mente- 
+                    
+                    <br><br>He explorado una amplia gama de estilos, lo que me permite adaptarme a las necesidades específicas 
+                    de cada artista. Mis principales especialidades incluyen <strong>géneros latinos, R & B, rock, indie, pop y música alternativa.</strong> <br>
+                    <br>Desde mi estudio en <strong>Bogotá, Colombia,</strong> equipado con tecnología de alto nivel en la industria, ofrezco un sonido cálido y con carácter 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
         <!-- ==========================================
          SECCIÓN 2: TRABAJOS (Galería tipo portafolio con overlay)
@@ -229,7 +261,18 @@
                         </div>
                     </div>
                 </div>
+           
                 
+            </div>
+            
+            <div class="playlist-container">
+                <iframe 
+                    class="spotify-playlist"
+                    src="https://open.spotify.com/embed/playlist/11qP7ADwOPBxDX7Q57t6zh?utm_source=generator&theme=0" 
+                    frameborder="0" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
@@ -360,38 +403,7 @@
         </div>
     </section>
 
-    <!-- ==========================================
-         SECCIÓN 4: BIO (texto y foto personal)
-         ========================================== -->
-    <section id="bio" class="seccion bio">
-        <div class="contenedor">
-            <div class="encabezado-seccion">
-                <div class="linea-decorativa"></div>
-                <h2>BIO</h2>
-                <div class="linea-decorativa"></div>
-            </div>
-            
-            <div class="bio-contenido">
-                <!-- >>> AQUÍ COLOCA TU FOTO DE PERFIL (cuadrada) <<< -->
-                <img src="imagenes/perfil.jpg" alt="Foto de perfil" class="foto-perfil">
-                
-                <!-- >>> AQUÍ ESCRIBE TUS TEXTOS PERSONALES <<< -->
-                <div class="bio-texto">
-                    <p>A lo largo de mi carrera, he tenido el privilegio de trabajar con numerosos artistas, como compositor, 
-                        productor musical e ingeniero de mezcla, llevando cada proyecto a los mejores resultados posibles. 
-                    <strong>Con más de 10 años de experiencia,</strong> he colaborado con artistas emergentes y consolidados, así como con empresas y 
-                    proyectos audiovisuales, acompañándolos en el desarrollo de su sonido y la materialización de sus ideas. <br><br>
-                    
-                    -Mi objetivo es ayudarte a alcanzar el sonido que tienes en mente- 
-                    
-                    <br><br>He explorado una amplia gama de estilos, lo que me permite adaptarme a las necesidades específicas 
-                    de cada artista. Mis principales especialidades incluyen géneros latinos, R & B, rock, indie, pop y música alternativa. <br>
-                    <br>Desde mi estudio en <strong>Bogotá, Colombia,</strong> equipado con tecnología de alto nivel en la industria, ofrezco un sonido cálido y con carácter 
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 
     <!-- ==========================================
          SECCIÓN 5: CONTACTO (info, email, redes)

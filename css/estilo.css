@@ -398,37 +398,43 @@ body {
 /* ---------- SECCIÓN BIO (foto y texto) ---------- */
 .bio-contenido {
     display: flex;
-    gap: 50px;
-    align-items: center;
+    gap: 0px;
+    align-items: stretch;
     flex-wrap: wrap;
 }
 
-/* Foto de perfil con borde NARANJA */
+/* configuracion para foto de perfil de bio */
 .foto-perfil {
-    width: 280px;
-    height: 280px;
+      width: 380px;  /* Más grande que antes (antes 280px) */
+    height: auto;
+    min-height: 450px;
     object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    border: 4px solid #FF6B00;
+    border-radius: 0px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .foto-perfil:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 25px rgba(255, 107, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* 
-   CAMBIO IMPORTANTE #6:
-   Texto de BIO con FUENTE COOLVETICA
-*/
+
 .bio-texto {
     flex: 1;
     font-family: 'Poppins', 'Coolvetica', sans-serif;
     font-size: 18px;
     line-height: 1.6;
     font-weight: 400;
+    background-color: #1A1A1A;
+    padding: 10px;
+    border-radius: 0;  /* Sin bordes redondeados para que quede más pegado */
+    border-left: none;  /* ELIMINA la franja naranja */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .bio-texto p {
@@ -628,12 +634,19 @@ body {
     
     .bio-contenido {
         flex-direction: column;
-        text-align: center;
+        gap: 20px;
     }
     
     .foto-perfil {
-        width: 200px;
-        height: 200px;
+          width: 100%;  /* En móvil ocupa todo el ancho */
+        min-height: auto;
+        height: auto;
+        max-height: 350px;
+    }
+
+    .bio-texto {
+        padding: 25px;
+        text-align: left;  /* En móvil se lee mejor alineado a la izquierda */
     }
     
     .info-contacto {
@@ -1202,3 +1215,84 @@ body {
 }
 
 /* Efecto de zoom al cargar (usando JavaScript - ver abajo) */
+
+/* =====================================================
+   PLAYLIST EMBEBIDA DE SPOTIFY
+   ===================================================== */
+
+/* Contenedor de la playlist */
+.playlist-container {
+    margin: 60px auto 20px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
+}
+
+.playlist-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo del iframe de Spotify */
+.spotify-playlist {
+    display: block;
+    width: 100%;
+    height: 352px;
+    border: none;
+    border-radius: 16px;
+    background-color: #121212;
+}
+
+/* Título decorativo antes de la playlist */
+.playlist-titulo {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-family: 'Poppins', 'Coolvetica', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #FF8C00;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.playlist-titulo::before,
+.playlist-titulo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #FF6B00, transparent);
+}
+
+.playlist-titulo::before {
+    left: -70px;
+}
+
+.playlist-titulo::after {
+    right: -70px;
+}
+
+/* Responsive para la playlist */
+@media (max-width: 768px) {
+    .spotify-playlist {
+        height: 280px;
+    }
+    
+    .playlist-titulo::before,
+    .playlist-titulo::after {
+        width: 30px;
+    }
+    
+    .playlist-titulo::before {
+        left: -40px;
+    }
+    
+    .playlist-titulo::after {
+        right: -40px;
+    }
+}
