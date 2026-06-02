@@ -1,5 +1,6 @@
 /**
  * JavaScript para el portafolio - Efectos, menú activo, MODAL y REDIRECCIONES
+ * Version responsiva
  */
 
 // ==================================================
@@ -84,14 +85,14 @@ const proyectosData = {
         imagen: 'imagenes/galeria/trabajo11.png'
     },
     'proyecto12': {
-        titulo: 'Sin título',
+        titulo: 'Proyecto 12',
         artista: 'Artista',
         detalle: 'Sencillo',
         descripcion: 'Ingeniería de sonido.',
         imagen: 'imagenes/galeria/trabajo12.png'
     },
     'proyecto13': {
-        titulo: 'Sin título',
+        titulo: 'Proyecto 13',
         artista: 'Artista',
         detalle: 'Colaboración',
         descripcion: 'Colaboración especial.',
@@ -213,59 +214,4 @@ document.addEventListener('DOMContentLoaded', function() {
         proyectosArray = Array.from(itemsGaleria).map(item => item.dataset.proyectoId);
         itemsGaleria.forEach((item) => {
             item.addEventListener('click', (e) => {
-                if (e.target.classList && e.target.classList.contains('proyecto-link')) return;
-                const proyectoId = item.dataset.proyectoId;
-                if (proyectoId && proyectosData[proyectoId]) abrirModal(proyectoId);
-            });
-        });
-    }
-
-    // ==================================================
-    // 5. MODAL NEWSLETTER (Google Forms)
-    // ==================================================
-    const modalNewsletter = document.getElementById('modalNewsletter');
-    const openModalBtn = document.getElementById('openModalBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-
-    if (modalNewsletter) modalNewsletter.style.display = 'none';
-
-    function abrirModalNewsletter(e) {
-        if (e) e.preventDefault();
-        if (modalNewsletter) {
-            modalNewsletter.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    }
-    function cerrarModalNewsletter() {
-        if (modalNewsletter) {
-            modalNewsletter.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-    }
-    if (openModalBtn) openModalBtn.addEventListener('click', abrirModalNewsletter);
-    if (closeModalBtn) closeModalBtn.addEventListener('click', cerrarModalNewsletter);
-    window.addEventListener('click', (e) => { if (e.target === modalNewsletter) cerrarModalNewsletter(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalNewsletter && modalNewsletter.style.display === 'flex') cerrarModalNewsletter(); });
-
-    // ==================================================
-    // 6. REDIRECCIÓN DISCOS FILTER FAUNA
-    // ==================================================
-    const discosFilterFauna = document.querySelectorAll('.item-disco');
-    discosFilterFauna.forEach(disco => {
-        disco.addEventListener('click', function(e) {
-            const url = this.getAttribute('data-url');
-            if (url) window.open(url, '_blank');
-        });
-    });
-});
-
-// ==================================================
-// ESTILOS DINÁMICOS
-// ==================================================
-const style = document.createElement('style');
-style.textContent = `
-    .seccion-oculta { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .seccion-visible { opacity: 1; transform: translateY(0); }
-    .menu-principal a.activo { border-bottom-color: #FF6B00; color: #FF8C00; font-weight: bold; }
-`;
-document.head.appendChild(style);
+               
