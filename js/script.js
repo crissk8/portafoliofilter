@@ -84,7 +84,7 @@ const proyectosData = {
         titulo: 'El Cielo',
         artista: 'Passiflora y Psicotropicos',
         detalle: 'Sencillo',
-        descripcion: 'Producción musical.',
+        descripcion: 'Producción musical',
         imagen: 'imagenes/galeria/trabajo6.png'
     },
     // PROYECTO 11 (comentario HTML: PROYECTO 11)
@@ -92,23 +92,23 @@ const proyectosData = {
         titulo: 'Etéreo',
         artista: 'Passiflora y Psicotrópicos',
         detalle: 'Sencillo',
-        descripcion: 'Producción musical.',
+        descripcion: 'Producción musical',
         imagen: 'imagenes/galeria/trabajo8.png'
     },
     // PROYECTO 12 (comentario HTML: PROYECTO 12)
     'proyecto12': {
-        titulo: 'Proyecto 12',
-        artista: 'Artista',
+        titulo: 'VOCES ANGUSTIA Y FUEGO (REMIX)',
+        artista: 'Pocket Tincho-Birna Quoya-Ain Sof-Filter Fauna',
         detalle: 'Sencillo',
-        descripcion: 'Ingeniería de sonido.',
+        descripcion: 'MEZCLA',
         imagen: 'imagenes/galeria/trabajo12.png'
     },
     // PROYECTO 13 (comentario HTML: PROYECTO 13)
     'proyecto13': {
-        titulo: 'Proyecto 13',
-        artista: 'Artista',
-        detalle: 'Colaboración',
-        descripcion: 'Colaboración especial.',
+        titulo: 'VOCES ANGUSTIA Y FUEGO (REMIX)',
+        artista: 'Thomas Parr-Caillou-Filter Fauna',
+        detalle: 'Sencillo',
+        descripcion: 'MEZCLA',
         imagen: 'imagenes/galeria/trabajo13.png'
     }
 };
@@ -298,3 +298,86 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ==================================================
+// 8. FORMULARIO NEWSLETTER CON WEB3FORMS
+// ==================================================
+
+const newsletterForm = document.getElementById('newsletterForm');
+const newsletterFeedback = document.getElementById('newsletterFeedback');
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Obtener valores
+        const nombre = document.getElementById('newsletterNombre').value.trim();
+        const email = document.getElementById('newsletterEmail').value.trim();
+        
+        // Validar
+        if (!nombre) {
+            mostrarFeedbackNewsletter('❌ Por favor ingresa tu nombre.', 'error');
+            return;
+        }
+        
+        if (!email) {
+            mostrarFeedbackNewsletter('❌ Por favor ingresa tu correo electrónico.', 'error');
+            return;
+        }
+        
+        // Validar formato de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            mostrarFeedbackNewsletter('❌ Por favor ingresa un correo electrónico válido.', 'error');
+            return;
+        }
+        
+        // Mostrar mensaje de "enviando..."
+        mostrarFeedbackNewsletter('📧 Enviando...', 'info');
+        
+        // Preparar datos para Web3Forms
+        const formData = new FormData();
+        formData.append('access_key', '6cd559f8-f9fc-4c78-bb71-71ce3a44eab4');
+        formData.append('name', nombre);
+        formData.append('email', email);
+        formData.append('subject', 'Nuevo suscriptor de Filter Fauna');
+        formData.append('from_name', 'Filter Fauna Website');
+        
+        // Enviar a Web3Forms
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                mostrarFeedbackNewsletter('✅ ¡Gracias por suscribirte!.', 'success');
+                newsletterForm.reset();
+            } else {
+                mostrarFeedbackNewsletter('❌ Hubo un error: ' + (data.message || 'Inténtalo de nuevo'), 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            mostrarFeedbackNewsletter('❌ Error de conexión. Por favor inténtalo más tarde.', 'error');
+        });
+    });
+}
+
+function mostrarFeedbackNewsletter(mensaje, tipo) {
+    if (!newsletterFeedback) return;
+    
+    newsletterFeedback.textContent = mensaje;
+    newsletterFeedback.className = `newsletter-feedback ${tipo}`;
+    newsletterFeedback.style.display = 'block';
+    
+    // Scroll suave al mensaje
+    newsletterFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    
+    // Ocultar después de 5 segundos (excepto mensajes de info)
+    if (tipo !== 'info') {
+        setTimeout(() => {
+            newsletterFeedback.style.display = 'none';
+        }, 5000);
+    }
+}

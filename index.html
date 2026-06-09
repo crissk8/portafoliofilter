@@ -192,9 +192,9 @@
                     <div class="item-galeria-imagen">
                         <img src="imagenes/galeria/trabajo12.png" alt="Proyecto 12" loading="lazy">
                         <div class="item-galeria-overlay">
-                            <h3 class="proyecto-titulo">Proyecto 12</h3>
-                            <p class="proyecto-descripcion">Ingeniería de sonido</p>
-                            <span class="proyecto-categoria">Ingeniería</span>
+                            <h3 class="proyecto-titulo">VOCES ANGUSTIA Y FUEGO</h3>
+                            <p class="proyecto-descripcion">Pocket Tincho<br>Birna Quoya<br>Ain Sof<br>Filter Fauna<br>Remix-Sencillo</bre></p>
+                            <span class="proyecto-categoria">Mezcla</span>
                         </div>
                     </div>
                 </div>
@@ -203,9 +203,9 @@
                     <div class="item-galeria-imagen">
                         <img src="imagenes/galeria/trabajo13.png" alt="Proyecto 13" loading="lazy">
                         <div class="item-galeria-overlay">
-                            <h3 class="proyecto-titulo">Proyecto 13</h3>
-                            <p class="proyecto-descripcion">Colaboración especial</p>
-                            <span class="proyecto-categoria">Colaboración</span>
+                            <h3 class="proyecto-titulo">VOCES ANGUSTIA Y FUEGO (REMIX)</h3>
+                            <p class="proyecto-descripcion">Thomas Parr<br>Caillou<br>Filter Fauna<br>Sencillo</p>
+                            <span class="proyecto-categoria">Mezcla</span>
                         </div>
                     </div>
                 </div>
@@ -280,30 +280,32 @@
                 </div>
             </div>
             
-            <!-- NEWSLETTER -->
+                        <!-- NEWSLETTER -->
             <div class="newsletter-section">
                 <div class="newsletter-contenido">
                     <h3 class="newsletter-titulo">NEWSLETTER</h3>
                     <p class="newsletter-descripcion">Suscríbete para recibir noticias sobre nuevos lanzamientos, contenido exclusivo y novedades de Filter Fauna.</p>
-                    <button id="openModalBtn" class="newsletter-btn"><span>SUSCRIBIRME</span></button>
+                    
+                    <!-- FORMULARIO CON WEB3FORMS -->
+                    <form id="newsletterForm" class="newsletter-form">
+                        <div class="form-group">
+                            <input type="text" id="newsletterNombre" name="name" placeholder="Tu nombre" required class="newsletter-input">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="newsletterEmail" name="email" placeholder="Tu correo electrónico" required class="newsletter-input">
+                        </div>
+                        <button type="submit" class="newsletter-btn">
+                            <span>SUSCRIBIRME</span>
+                        </button>
+                    </form>
+                    <div id="newsletterFeedback" class="newsletter-feedback" style="display: none;"></div>
                     <p class="newsletter-nota">No compartiremos tu información con nadie. Puedes cancelar tu suscripción cuando quieras.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MODAL NEWSLETTER (INICIALMENTE OCULTO) -->
-    <div id="modalNewsletter" class="modal-newsletter" style="display: none;">
-        <div class="modal-newsletter-contenido">
-            <div class="modal-newsletter-header">
-                <h3>Suscríbete a Filter Fauna</h3>
-                <span class="modal-newsletter-cerrar" id="closeModalBtn">&times;</span>
-            </div>
-            <div class="modal-newsletter-body">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe-WVpaRJTN9W-SHtTxjWtxtxCQ_tVeHgmKPMoNh_3QG53vhw/viewform?usp=header" width="100%" height="500" frameborder="0" loading="lazy">Cargando…</iframe>
-            </div>
-        </div>
-    </div>
+ 
 
     <!-- MODAL PROYECTOS -->
     <div id="modalProyecto" class="modal">
