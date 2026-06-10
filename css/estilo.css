@@ -1439,3 +1439,14 @@ body {
         font-size: 20px;
     }
 }
+
+/* Temporal - para depuración en móvil */
+@media (max-width: 768px) {
+    .galeria {
+        background-color: red !important;
+    }
+    .item-galeria {
+        background-color: blue !important;
+        border: 2px solid yellow !important;
+    }
+}
