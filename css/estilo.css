@@ -1302,3 +1302,140 @@ body {
     50% { transform: translateY(-5px); }
     100% { transform: translateY(0px); }
 }
+
+/* =====================================================
+   MEJORAS EXTRA PARA CELULAR (Proyectos y Spotify)
+   ===================================================== */
+
+@media (max-width: 768px) {
+    /* Galería de trabajos - asegurar 1 columna */
+    .galeria {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    /* Tarjetas de proyectos */
+    .item-galeria {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .item-galeria img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+    
+    /* Overlay en móvil - un poco más grande para tocar */
+    .item-galeria-overlay {
+        padding: 15px;
+    }
+    
+    .proyecto-titulo {
+        font-size: 16px;
+    }
+    
+    .proyecto-descripcion {
+        font-size: 11px;
+    }
+    
+    /* Playlist de Spotify - altura adecuada para móvil */
+    .spotify-playlist {
+        height: 280px;
+    }
+    
+    /* Galería de discos Filter Fauna */
+    .galeria-discos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+    
+    /* Ajuste para pantallas muy pequeñas (menos de 480px) */
+    @media (max-width: 480px) {
+        .galeria-discos {
+            grid-template-columns: 1fr !important;
+        }
+        
+        .spotify-playlist {
+            height: 200px;
+        }
+        
+        .proyecto-titulo {
+            font-size: 14px;
+        }
+        
+        .item-galeria-overlay {
+            padding: 10px;
+        }
+    }
+}
+
+/* Asegurar que en tablet se vean 2 columnas */
+@media (min-width: 601px) and (max-width: 900px) {
+    .galeria {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+    
+    .galeria-discos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+}
+
+/* En tablet grande (901px a 1200px) - 3 columnas */
+@media (min-width: 901px) and (max-width: 1200px) {
+    .galeria {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px;
+    }
+    
+    .galeria-discos {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px;
+    }
+}
+
+/* Mejora del modal en móvil */
+@media (max-width: 768px) {
+    .modal-contenido {
+        width: 95%;
+        margin: 20px auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .modal-imagen {
+        max-height: 250px;
+        width: auto;
+        margin: 0 auto;
+    }
+    
+    .modal-titulo {
+        font-size: 22px;
+        text-align: center;
+    }
+    
+    .modal-artista, .modal-detalle {
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .modal-descripcion {
+        font-size: 13px;
+        text-align: center;
+    }
+    
+    .flecha-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+}

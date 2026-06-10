@@ -68,7 +68,7 @@ const proyectosData = {
         titulo: 'Cenizas',
         artista: 'Koncobard',
         detalle: 'Sencillo',
-        descripcion: 'Composición, producción y mezcla.',
+        descripcion: 'Composición, producción y mezcla',
         imagen: 'imagenes/galeria/trabajo4.png'
     },
     // PROYECTO 9 (comentario HTML: PROYECTO 9)
@@ -76,7 +76,7 @@ const proyectosData = {
         titulo: 'Donde mueren los planetas',
         artista: 'Passiflora y Psicotropicos',
         detalle: 'Sencillo',
-        descripcion: 'Producción musical del sencillo.',
+        descripcion: 'Producción musical',
         imagen: 'imagenes/galeria/trabajo5.png'
     },
     // PROYECTO 10 (comentario HTML: PROYECTO 10)
