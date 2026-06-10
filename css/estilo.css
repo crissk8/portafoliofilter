@@ -205,9 +205,17 @@ body {
     .encabezado-seccion h2 {
         font-size: 38px;
     }
-    .linea-decorativa {
-        width: 40px;
-        height: 2px;
+    
+    .trabajos .encabezado-seccion,
+    .contacto .encabezado-seccion {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .trabajos .linea-decorativa,
+    .contacto .linea-decorativa {
+        width: 60px;
+        height: 3px;
     }
 }
 
@@ -218,20 +226,18 @@ body {
     border-radius: 3px;
 }
 
-/* ---------- GALERÍA TRABAJOS (Responsivo 4→3→2→1 columnas) ---------- */
+/* ---------- GALERÍA TRABAJOS ---------- */
 .galeria {
     display: grid;
     gap: 20px;
 }
 
-/* Desktop (>1200px) - 4 columnas */
 @media (min-width: 1201px) {
     .galeria {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* Tablet grande (901px - 1200px) - 3 columnas */
 @media (max-width: 1200px) and (min-width: 901px) {
     .galeria {
         grid-template-columns: repeat(3, 1fr);
@@ -239,7 +245,6 @@ body {
     }
 }
 
-/* Tablet pequeña (601px - 900px) - 2 columnas */
 @media (max-width: 900px) and (min-width: 601px) {
     .galeria {
         grid-template-columns: repeat(2, 1fr);
@@ -247,7 +252,6 @@ body {
     }
 }
 
-/* Móvil (<=600px) - 1 columna */
 @media (max-width: 600px) {
     .galeria {
         grid-template-columns: 1fr;
@@ -279,7 +283,6 @@ body {
     }
 }
 
-/* Móvil muy pequeño (<=400px) */
 @media (max-width: 400px) {
     .galeria {
         gap: 12px;
@@ -298,7 +301,6 @@ body {
     }
 }
 
-/* Fondo de respaldo si la imagen no carga */
 .item-galeria-imagen {
     background-color: #1A1A1A;
 }
@@ -391,7 +393,7 @@ body {
     margin-top: 5px;
 }
 
-/* ---------- SECCIÓN MEDIA (Responsivo) ---------- */
+/* ---------- SECCIÓN MEDIA ---------- */
 .videos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -438,7 +440,7 @@ body {
     filter: brightness(1.1);
 }
 
-/* ---------- BIO (Responsivo) ---------- */
+/* ---------- BIO ---------- */
 .bio-contenido {
     display: flex;
     gap: 0px;
@@ -529,7 +531,7 @@ body {
     }
 }
 
-/* ---------- CONTACTO (Responsivo) ---------- */
+/* ---------- CONTACTO ---------- */
 .info-contacto {
     display: flex;
     justify-content: space-between;
@@ -763,7 +765,7 @@ body {
 }
 
 /* =====================================================
-   GALERÍA DE DISCOS - FILTER FAUNA (Responsivo)
+   GALERÍA DE DISCOS - FILTER FAUNA
    ===================================================== */
 .galeria-discos {
     display: grid;
@@ -928,119 +930,234 @@ body {
 }
 
 /* =====================================================
-   NEWSLETTER (Responsivo)
+   NEWSLETTER - FORMULARIO ELEGANTE MEJORADO
    ===================================================== */
 .newsletter-section {
     margin-top: 80px;
-    padding: 50px 30px;
-    background: linear-gradient(135deg, rgba(0, 30, 30, 0.7) 0%, rgba(0, 20, 20, 0.8) 100%);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
+    padding: 50px 40px;
+    background: linear-gradient(135deg, rgba(0, 30, 30, 0.8) 0%, rgba(0, 20, 20, 0.9) 100%);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
     border: 1px solid rgba(0, 212, 192, 0.3);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 192, 0.08), transparent);
+    transition: left 0.8s ease;
+    pointer-events: none;
+}
+
+.newsletter-section:hover::before {
+    left: 100%;
 }
 
 .newsletter-section:hover {
-    border-color: #00D4C0;
-    box-shadow: 0 10px 30px rgba(0, 212, 192, 0.1);
-}
-
-@media (max-width: 768px) {
-    .newsletter-section {
-        padding: 30px 20px;
-        margin-top: 50px;
-    }
+    border-color: rgba(0, 212, 192, 0.6);
+    box-shadow: 0 15px 40px rgba(0, 212, 192, 0.2);
+    transform: translateY(-3px);
 }
 
 .newsletter-contenido {
-    max-width: 600px;
+    max-width: 550px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .newsletter-titulo {
     font-family: 'MiAndrew', 'Lobster', cursive;
-    font-size: 32px;
+    font-size: 34px;
     font-weight: normal;
     color: #00D4C0;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
 }
 
-@media (max-width: 768px) {
-    .newsletter-titulo {
-        font-size: 28px;
-    }
+.newsletter-titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00D4C0, #00B4A0, #00D4C0, transparent);
+    border-radius: 2px;
 }
 
 .newsletter-descripcion {
     font-family: 'Poppins', 'Coolvetica', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     color: #B0D4D0;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     line-height: 1.6;
+    padding: 0 10px;
 }
 
-@media (max-width: 768px) {
-    .newsletter-descripcion {
-        font-size: 14px;
-        margin-bottom: 25px;
-    }
+/* Grupo de inputs con iconos */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
 }
 
+/* Input con efecto moderno */
+.newsletter-input {
+    width: 100%;
+    padding: 16px 20px 16px 50px;
+    background: rgba(10, 25, 25, 0.7);
+    border: 1px solid rgba(0, 212, 192, 0.3);
+    border-radius: 16px;
+    font-family: 'Poppins', 'Coolvetica', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* Iconos dentro de los inputs (con pseudoelementos) */
+.form-group {
+    position: relative;
+}
+
+.form-group--nombre::before,
+.form-group--email::before {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+
+
+.newsletter-input:focus {
+    border-color: #00D4C0;
+    box-shadow: 0 0 20px rgba(0, 212, 192, 0.25);
+    background: rgba(10, 25, 25, 0.95);
+}
+
+.newsletter-input::placeholder {
+    color: #5A8A8A;
+    font-weight: 300;
+    transition: opacity 0.3s ease;
+}
+
+.newsletter-input:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* Botón de envío mejorado */
 .newsletter-btn {
     background: linear-gradient(135deg, #00B4A0, #00D4C0);
     color: #0A1A1A;
     border: none;
-    padding: 15px 30px;
+    padding: 14px 30px;
     border-radius: 40px;
     font-family: 'Poppins', 'Coolvetica', sans-serif;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 100%;
     margin-top: 10px;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.newsletter-btn::before {
+   
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.newsletter-btn span {
+    transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover::before {
+    transform: translateX(-3px);
+}
+
+.newsletter-btn:hover span {
+    transform: translateX(3px);
 }
 
 .newsletter-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 212, 192, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 212, 192, 0.4);
 }
 
-@media (max-width: 768px) {
-    .newsletter-btn {
-        padding: 12px 25px;
-        font-size: 14px;
-    }
+.newsletter-btn:active {
+    transform: translateY(1px);
 }
 
-.newsletter-nota {
-    font-family: 'Poppins', 'Coolvetica', sans-serif;
-    font-size: 12px;
-    color: #6A8A8A;
-    margin-top: 20px;
-}
-
-/* Mensajes de feedback para el formulario */
+/* Mensajes de feedback mejorados */
 .newsletter-feedback {
     margin-top: 20px;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 12px 18px;
+    border-radius: 16px;
     font-family: 'Poppins', 'Coolvetica', sans-serif;
     font-size: 14px;
     text-align: center;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+    animation: fadeInUp 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .newsletter-feedback.success {
-    background: rgba(0, 212, 192, 0.2);
+    background: rgba(0, 212, 192, 0.15);
     color: #00D4C0;
-    border: 1px solid #00D4C0;
+    border: 1px solid rgba(0, 212, 192, 0.4);
+}
+
+.newsletter-feedback.success::before {
+    content: '✅';
 }
 
 .newsletter-feedback.error {
-    background: rgba(255, 107, 0, 0.2);
-    color: #FF6B00;
-    border: 1px solid #FF6B00;
+    background: rgba(255, 107, 0, 0.15);
+    color: #FF8C00;
+    border: 1px solid rgba(255, 107, 0, 0.4);
+}
+
+.newsletter-feedback.error::before {
+    content: '❌';
 }
 
 .newsletter-feedback.info {
@@ -1049,8 +1166,48 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.newsletter-feedback.info::before {
+    content: '📧';
+}
+
+/* Nota pequeña */
+.newsletter-nota {
+    font-family: 'Poppins', 'Coolvetica', sans-serif;
+    font-size: 11px;
+    color: #5A8A8A;
+    margin-top: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive formulario */
+@media (max-width: 768px) {
+    .newsletter-section {
+        padding: 35px 25px;
+        margin-top: 50px;
+    }
+    
+    .newsletter-titulo {
+        font-size: 28px;
+    }
+    
+    .newsletter-descripcion {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+    
+    .newsletter-input {
+        padding: 14px 18px 14px 45px;
+        font-size: 14px;
+    }
+    
+    .newsletter-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
 /* =====================================================
-   MODAL PROYECTOS (Responsivo)
+   MODAL PROYECTOS
    ===================================================== */
 .modal {
     display: none;
@@ -1291,7 +1448,7 @@ body {
 }
 
 /* =====================================================
-   PLAYLIST SPOTIFY (Responsivo)
+   PLAYLIST SPOTIFY
    ===================================================== */
 .playlist-container {
     margin: 60px auto 20px auto;
